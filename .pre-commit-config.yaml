@@ -1,0 +1,24 @@
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.4.0
+    hooks:
+      - id: check-added-large-files
+      - id: check-ast
+      - id: detect-private-key
+      - id: trailing-whitespace
+      - id: check-shebang-scripts-are-executable
+      - id: requirements-txt-fixer
+  - repo: https://github.com/psf/black
+    rev: 22.12.0
+    hooks:
+      - id: black
+        entry: bash -c 'black "$@"; git add -u' --
+  - repo: https://github.com/charliermarsh/ruff-pre-commit
+    rev: v0.0.230
+    hooks:
+      - id: ruff
+        entry: bash -c 'ruff --fix "$@"; git add -u' --
+  - repo: https://github.com/koalaman/shellcheck-precommit
+    rev: v0.9.0
+    hooks:
+      - id: shellcheck
