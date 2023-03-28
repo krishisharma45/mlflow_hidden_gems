@@ -16,7 +16,7 @@ class TrainingSession:
             #repo = Repo("/workspace")
             #commit_hash = repo.head.object.hexsha
             #mlflow.set_tag("git commit", mlflow.info.run_id())
-            print(mlflow.info)
+            print(mlflow.active_run().info)
             mlflow.autolog()
 
 
