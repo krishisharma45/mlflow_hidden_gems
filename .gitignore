@@ -45,3 +45,6 @@ tmp/
 # ML-specific
 **/lightning_logs/
 mlruns/
+checkpoints/*
+data/mnist/*
+experiment_name*

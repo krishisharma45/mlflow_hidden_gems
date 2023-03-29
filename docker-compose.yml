@@ -30,10 +30,12 @@ services:
       context: .
       args:
         BUILDKIT_INLINE_CACHE: 1
+
     environment:
       - NVIDIA_VISIBLE_DEVICES=all
       - MLFLOW_ARTIFACT_ROOT
       - MLFLOW_BACKEND_STORE_URI
+      - USER
     volumes:
       - ./mlruns:/mlruns
     ports:

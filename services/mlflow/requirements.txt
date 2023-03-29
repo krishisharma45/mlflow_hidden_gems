@@ -1,2 +1,2 @@
-mlflow==1.29.0
+mlflow==2.2.2
 protobuf==3.20.*
