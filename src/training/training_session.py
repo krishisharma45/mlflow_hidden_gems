@@ -24,7 +24,7 @@ class TrainingSession:
             self.run()
 
             run_id = run_data.info.run_uuid
-            mlflow.register_model(model_uri=f"runs:/{run_id}/initial", name="TEST MODEL")
+            mlflow.register_model(model_uri=f"runs:/{run_id}/initial", name="Llama Model")
 
     def run(self):
         self.seed_generators()
@@ -42,7 +42,6 @@ class TrainingSession:
             torch.backends.cudnn.deterministic = True
 
     def configure_logging(self):
-        mlflow.log_params(vars(self.config))
         mlflow.autolog()
 
     def create_model(self):
@@ -52,7 +51,6 @@ class TrainingSession:
         self.trainer = Trainer(
             logger=None,
             max_epochs=self.config.max_epochs,
-            #callbacks=self.model.create_callbacks(),
         )
 
     def run_trainer(self):

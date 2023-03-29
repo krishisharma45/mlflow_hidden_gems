@@ -1,7 +1,6 @@
 <h1>MLFlow Hidden Gems</h1>
 
-Describe the problems addressed in this project and the solution that was built to address that
-problem. This should be a high level summary oriented towards a general audience.
+A containerized image recognition application that demonstrates some core capabilities within MLFlow.
 
 [Python 3.8][python-url]
 
@@ -23,7 +22,7 @@ will be installed as part of the image creation process.
 ### First Time Users
 
 If this is your first time using this application, please ensure that you have installed the
-[requirements](#requirements) listed above before proceeding. If you are using MacOS or Linux, you
+[requirements](#requirements) listed above before proceeding. Also make sure that you create a .env file from the .env.example template. If you are using MacOS or Linux, you
 can run this command:
 
 ```sh
@@ -62,7 +61,7 @@ application locally](#launching-the-application).
 
 ### Launching the Application
 
-To launch this application, you need to first build the Docker image using
+To launch this application, you need to first create a .env file for this project. Please use the .env.example to help you build your .env file. Then, you need to build the Docker image using
 
 ```sh
 bin/build.sh
@@ -92,20 +91,6 @@ Below are additional instruction on [training](#training) and [running tests](#t
 that everything is working.
 
 ## Additional Commands
-
-### Running Jupyter Lab
-
-Sometimes, it is helpful to run Jupyter lab if you need a sandbox to explore ideas. We use Jupyter
-Lab for this purpose and store our notebooks in the notebooks directory in this repository.
-
-To launch Jupyter lab, please run this command:
-
-```sh
-bin/notebook.sh
-```
-
-and navigate to http://localhost:8888/lab to access the lab instance.
-
 ### Training
 
 To train the model, all you need to do is run this command:
@@ -126,15 +111,6 @@ working. The below command will start a Docker container and execute all unit te
 bin/test.sh
 ```
 
-If you want to run a test on a specific file or directory (rather than running all the tests in
-the tests/ directory), you can use the `-k` flag and list the file path afterwards.
-
-For example, if we specifically wanted to run a test called "test_api", and its file path is as
-"tests/test_api.py", we can run:
-
-```shell script
-bin/test.sh -k test_api.py
-```
 
 ### Summary of Commands
 
@@ -146,13 +122,11 @@ The most commonly used bin are:
 
 - `bin/build.sh` - build docker container(s) defined in `Dockerfile` and `docker-compose.yml`
 - `bin/test.sh` - run unit tests defined in `tests/`
-- `bin/notebook.sh` - instantiate a new jupyter notebook server
 - `bin/shell.sh` - instantiate a new bash terminal inside the container
 - `bin/train.sh` - train a model
 
 Additional bin:
 
-- `bin/lint.sh` - check code formatting for the project
 - `bin/setup_environment.sh` - sets any build arguments or settings for all containers brought up
   with docker-compose
 - `bin/up.sh` - bring up all containers defined in `docker-compose.yml`

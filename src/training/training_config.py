@@ -3,8 +3,8 @@ from time import time
 
 
 class TrainingConfig(BaseModel):
-    experiment_name: str = "Exploration"
-    batch_size: int = 64
+    experiment_name: str = "Development"
+    batch_size: int = 100
     max_epochs: int = 2
     patience: int = 5
     num_classes: int = 10
